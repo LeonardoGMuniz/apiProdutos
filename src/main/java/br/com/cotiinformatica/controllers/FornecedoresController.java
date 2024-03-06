@@ -1,36 +1,23 @@
 package br.com.cotiinformatica.controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.cotiinformatica.entities.Fornecedor;
+import br.com.cotiinformatica.repositories.FornecedorRepository;
+
 @RestController
-@RequestMapping ("/api/fornecedores")
+@RequestMapping("/api/fornecedores")
 public class FornecedoresController {
-	
-	@PostMapping
- public void post() {
-	 
-	 
- }
-	
-	@PutMapping
-	public void put() {
-		
-		
+  
+	@Autowired
+	private FornecedorRepository fornecedorRepository;
+	@GetMapping
+	public List <Fornecedor> get() {
+		return fornecedorRepository.findAll();
 	}
-   @DeleteMapping
-   public void delete () {
-
 }
-
-
-	   @GetMapping
-	   public void get() {
-	   }
-}
-
-
